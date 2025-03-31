@@ -3,11 +3,11 @@ const express = require("express");
 const morgan = require("morgan");
 const Person = require("./models/person");
 
-app = express();
+const app = express();
 app.use(express.static("dist"));
 app.use(express.json());
 
-morgan.token("body", function (req, res) {
+morgan.token("body", function (req) {
   return JSON.stringify(req.body);
 });
 
@@ -64,7 +64,7 @@ app.put("/api/people/:id", (req, res, next) => {
 
 app.delete("/api/people/:id", (req, res, next) => {
   Person.findByIdAndDelete(req.params.id)
-    .then((returnedPerson) => res.status(204).end())
+    .then(() => res.status(204).end())
     .catch((error) => next(error));
 });
 

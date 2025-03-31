@@ -6,7 +6,7 @@ const url = process.env.MONGODB_URI;
 
 mongoose
   .connect(url)
-  .then((res) => console.log("Database Connected"))
+  .then(() => console.log("Database Connected"))
   .catch((err) => console.log("Could not connect to database: " + err));
 
 const personSchema = new mongoose.Schema({

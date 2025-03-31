@@ -6,10 +6,10 @@ const URL = process.env.MONGODB_URI;
 // Connecting to database
 mongoose
   .connect(URL)
-  .then((ans) => {
+  .then(() => {
     console.log("ConnectedSuccessful");
   })
-  .catch((err) => {
+  .catch(() => {
     console.log("Error in the Connection");
   });
 
